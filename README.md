@@ -6,7 +6,7 @@ PHP >= 7.3
 
 Composer >= 2
 
-## OpenAi使用
+## 初始化
 
 拉取项目后通过composer安装组件库， composer >= 2
 ``` 

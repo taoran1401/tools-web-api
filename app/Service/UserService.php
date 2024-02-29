@@ -32,11 +32,11 @@ class UserService
             throw new \Exception('用户信息异常');
         }
         //签到状态
-        $users->check_in = 0;
+        /*$users->check_in = 0;
         if (!$this->isCheckIn($users->id)) {
             //未签到
             $users->check_in = 1;
-        }
+        }*/
 
         //会员状态
         $users->member_status = 0;
