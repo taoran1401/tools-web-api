@@ -52,12 +52,6 @@ Router::addGroup('/v1', function () {
     Router::post('/buy/member', 'App\Controller\Api\OrderController@buyMember');
     //积分流水列表
     Router::get('/integral/lists', 'App\Controller\Api\IntegralLogController@index');
-    //download - curd
-    Router::post('/download/lists', 'App\Controller\Api\DownloadController@index');
-    Router::post('/download/show/{id}', 'App\Controller\Api\DownloadController@show');
-    Router::post('/download/add', 'App\Controller\Api\DownloadController@store');
-    Router::post('/download/update/{id}', 'App\Controller\Api\DownloadController@update');
-    Router::post('/download/delete/{id}', 'App\Controller\Api\DownloadController@destroy');
     //tool collect
     Router::post('/tool/collects/{id}', 'App\Controller\Api\ToolController@collect');
     //get collect
