@@ -1,4 +1,4 @@
-# openapi 集合
+# tool-web后端
 
 ## 版本
 
@@ -13,10 +13,13 @@ Composer >= 2
 composer install
 ```
 
-.env中添加openai的secret-key
+添加`.env`
 ```
-SECRET_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxx
+cp .env.example .env
 ```
+
+配置`.env`, 只用填写`mysql`和`redis`的配置即可
+
 
 ## 启动项目
 
