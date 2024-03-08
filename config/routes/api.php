@@ -28,6 +28,8 @@ Router::addGroup('/v1', function () {
     Router::get('/tool/cates', 'App\Controller\Api\ToolCateController@index');
     //get tool recommend
     Router::get('/tool/recommends', 'App\Controller\Api\ToolController@randomRecommend');
+    //fetch web info
+    Router::get('/webinfo/{url}', 'App\Controller\Api\FetchWebInfoController@fetch');
 });
 
 Router::addGroup('/v1', function () {
