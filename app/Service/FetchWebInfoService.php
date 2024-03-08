@@ -39,6 +39,8 @@ class FetchWebInfoService
         $metas = $dom->getElementsByTagName('meta');
         $links = $dom->getElementsByTagName('link');
         $titles = $dom->getElementsByTagName('title');
+
+        //meta
         for ($i = 0; $i < $metas->length; $i++) {
             $meta = $metas->item($i);
             if ($meta->getAttribute('name') == 'description') {
@@ -49,16 +51,23 @@ class FetchWebInfoService
             }
         }
 
+        //logo
         for ($i = 0; $i < $links->length; $i++) {
             $link = $links->item($i);
-            if ($link->getAttribute('rel') == 'shortcut icon') {
-                $data['logo'] = $link->getAttribute('href');
-                if (strpos($data['logo'], $url) === false) {
-                    $data['logo'] = 'http://' . $url . $data['logo'];
-                }
+            if ($link->getAttribute('rel') != 'shortcut icon') {
+                continue;
+            }
+            $data['logo'] = $link->getAttribute('href');
+            //相对路径转换
+            if (strpos($data['logo'], '//') !== 0 && strpos($data['logo'], 'http') !== 0) {
+                $data['logo'] = 'https://' . $url . $data['logo'];
             }
         }
+        if (empty($data['logo'])) {
+            $data['logo'] = 'https://' . $url . '/favicon.ico';
+        }
 
+        //title
         for ($i = 0; $i < $titles->length; $i++) {
             $title = $titles->item($i);
             $data['title'] = $title->textContent;
