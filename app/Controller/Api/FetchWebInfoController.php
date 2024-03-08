@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Api;
 
-use App\Service\fetchWebInfoService;
+use App\Service\FetchWebInfoService;
 use Hyperf\Di\Annotation\Inject;
 use Taoran\HyperfPackage\Core\AbstractController;
 
