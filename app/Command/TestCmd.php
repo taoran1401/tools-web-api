@@ -16,6 +16,7 @@ use App\Package\CompressImg\src\CompressImg;
 use App\Package\Email\src\Email;
 use App\Package\Lemonsqueezy\src\Lemonsqueezy;
 use App\Package\ScanFile\src\ScanFile;
+use App\Service\ScanService;
 use App\Service\UserService;
 use App\Traits\LogTrait;
 use App\Traits\OpenApi;
@@ -53,9 +54,9 @@ class TestCmd extends HyperfCommand
 
     /**
      * @Inject()
-     * @var UserService
+     * @var ScanService
      */
-    private $userService;
+    private $scanServie;
 
     /**
      * @Inject()
@@ -78,6 +79,13 @@ class TestCmd extends HyperfCommand
 
     public function handle()
     {
+        //scan
+        $this->scanServie->scan([
+            'exts' => 'png,jpg',
+            'dir' => '/Users/taoran/Documents/ranblogs/tmp/',
+        ]);
+
+        exit;
         $list = Users::with(['tools' =>  function ($query) {
             return $query->with('toolCate');
         }])->find(54292);

@@ -70,3 +70,16 @@ Router::addGroup('/v1/pay', function () use ($middleware) {
     Router::post('/callback', 'App\Controller\Api\CallbackController@payCallback');
     Router::get('/testcallback', 'App\Controller\Api\CallbackController@testCallback');
 });
+
+
+//scan
+Router::addGroup('/v1', function () {
+    //获取文件列表
+    Router::get('/scans', 'App\Controller\Api\ScanController@index');
+    //获取文件信息
+    Router::get('/scans/{id}', 'App\Controller\Api\ScanController@show');
+    //获取标签
+    Router::get('/scan/tags', 'App\Controller\Api\ScanTagController@index');
+    //更新标签
+    Router::post('/scan/tag/updates', 'App\Controller\Api\ScanController@updateTag');
+});
