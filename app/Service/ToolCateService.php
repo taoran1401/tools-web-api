@@ -11,7 +11,7 @@ class ToolCateService
     {
         $list = ToolCate::with(['tools' => function ($query) {
             $query->with('toolCate');
-        }])->get();
+        }])->orderBy('sort', 'asc')->get();
         $list->each(function ($item) {
             $tools = $item->tools;
             $tools->each(function ($toolItem) {
