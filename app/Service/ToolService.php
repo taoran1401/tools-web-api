@@ -29,7 +29,7 @@ class ToolService
             $list = $list->where('url', $params['route']);
         }
 
-        $list = $list->get();
+        $list = $list->orderBy('sort', 'asc')->get();
         $list->each(function ($item) {
             $item->cate = $item->toolCate->title ?? '';
             unset($item->toolCate);
