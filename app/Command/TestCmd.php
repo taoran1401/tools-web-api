@@ -80,9 +80,10 @@ class TestCmd extends HyperfCommand
     public function handle()
     {
         //scan
+        $exts = 'mov,ts,mp4,wmv,mkv,flv,avi,mpeg,3gp,rmvb';
         $this->scanServie->scan([
-            'exts' => 'png,jpg',
-            'dir' => '/Users/taoran/Documents/ranblogs/tmp/',
+            'exts' => $exts,
+            'dir' => '/Users/taoran/Documents/ranblogs/tmp_video/',
         ]);
 
         exit;

@@ -37,7 +37,7 @@ class ScanService
         if (!empty($params['title'])) {
             $list = $list->where('title', 'like', "%{$params['title']}%");
         }
-        var_dump($params);exit;
+
         if (!empty($params['tags'])) {
             $list = $list->with(['scanTag' => function ($query) use ($params) {
                 $tags = explode(',', $params['tags']);
